@@ -8,64 +8,72 @@
 import UIKit
 
 class ex04: UIViewController {
-
+	
 	@IBOutlet weak var label: UILabel!
 	
-	
 	override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-	
-	var result = "0"
-	var tempResult = 0
-	var op = ""
-
+		super.viewDidLoad()
+	}
+	var number = [Int]()
+	var operation = [String]()
+	var result = 0
+	var screen = ""
 	@IBAction func btnNumber(_ sender: UIButton) {
-		if result == "0"{
-			result = sender.currentTitle!
+		if screen.isEmpty {
+			screen = sender.currentTitle!
 		} else {
-			result += sender.currentTitle!
+			screen += sender.currentTitle!
 		}
-		label.text = result
+		label.text = screen
 	}
 	
 	@IBAction func btnOper(_ sender: UIButton) {
-		tempResult = Int(result)!
-		result = "0"
-		label.text = result
-		op = sender.currentTitle!
+		number.append(Int(label.text!)!)
+		operation.append(sender.currentTitle!)
+		
+		screen = ""
 	}
 	
-	@IBAction func btnResult(_ sender: Any) {
-		switch op {
-		case "/":
-			if result != "0" {
-				result = String(tempResult / Int(result)!)
-			} else {
-				result = "0"
+	@IBAction func btnResult() {
+		number.append(Int(label.text!)!)
+//		print(number, operation)
+		for (i, v) in operation.enumerated() {
+			if v == "*" {
+				number[i] = number[i] * number[i+1]
+				number.remove(at: i+1)
+				operation.remove(at: i)
+			} else if v == "/" {
+				number[i] = number[i] / number[i+1]
+				number.remove(at: i+1)
+				operation.remove(at: i)
 			}
-			label.text = result
-		case "-":
-			result = String(tempResult - Int(result)!)
-			label.text = result
-		case "+":
-			result = String(tempResult + Int(result)!)
-			label.text = result
-		case "*":
-			result = String(tempResult * Int(result)!)
-			label.text = result
-		default:
-			break
 		}
+		for (i, v) in operation.enumerated() {
+			if v == "+" {
+				number[i] = number[i] + number[i+1]
+				number.remove(at: i+1)
+				operation.remove(at: i)
+			} else {
+				number[i] = number[i] - number[i+1]
+				number.remove(at: i+1)
+				operation.remove(at: i)
+			}
+		}
+		label.text = String(number[0])
+		number.removeAll()
+		screen = ""
 	}
 	
 	@IBAction func btnAC(_ sender: Any) {
-		result = "0"
-		tempResult = 0
-		label.text = result
+		number.removeAll()
+		operation.removeAll()
+		screen = ""
+		label.text = "0"
 	}
 	
 	@IBAction func btnNEG(_ sender: Any) {
+		label.text = String(Int(label.text!)! * -1)
+		screen = label.text!
 	}
 	
 }

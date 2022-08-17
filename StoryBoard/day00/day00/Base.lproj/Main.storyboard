@@ -119,7 +119,7 @@
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="btnNEG:" destination="OIa-0E-mhk" eventType="touchUpInside" id="TvE-fg-JUz"/>
+                                                    <action selector="btnNEG:" destination="OrR-Nn-jf4" eventType="touchUpInside" id="yox-cf-QOI"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -296,7 +296,7 @@
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="btnResult:" destination="OrR-Nn-jf4" eventType="touchUpInside" id="VCx-EK-s04"/>
+                                                    <action selector="btnResult" destination="OrR-Nn-jf4" eventType="touchUpInside" id="ZpV-tB-3h8"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QsM-DH-oY0">
@@ -327,7 +327,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5cr-xu-x2D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="OIa-0E-mhk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="940.57971014492762" y="-609.375"/>
         </scene>
