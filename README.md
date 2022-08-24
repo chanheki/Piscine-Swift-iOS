@@ -5,3 +5,4 @@
 ### day 03 : UIImageVie / Inspector / DetailView instance / zoom / scollView
 ### day 04 : api / tweet / OAuth / token / json
 ### day 05 : mapkit / pin / TabBarController / CLLocationManager / SegmentedControlBar
+### day 06 : CoreMotion / Gesture / dynamicAnimator / class Shape
