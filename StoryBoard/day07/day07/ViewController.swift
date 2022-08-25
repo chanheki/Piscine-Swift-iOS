@@ -52,26 +52,33 @@ class ViewController: UIViewController {
 	func makeRequest()
 	{
 		//Call makeRequest with string parameter to make a text request
-		self.recastClient?.textRequest(recastAITF.text ?? "", successHandler: recastRequest, failureHandle: { (error) in
-			self.recastAILabel.text = "Error"
-		})
-		
-		func recastRequest (_ response: Response) -> () {
-			if let locations = response.all(entity: "location") {
-				let coordinates = (locations[0]["formatted"] as? String, locations[0]["lat"]?.doubleValue, locations[0]["lng"]?.doubleValue)
-				//self.answerLabel.text = "\(coordinates.0!)\nLAT: \(coordinates.1!)\nLNG:\(coordinates.2!)"
-
-				self.locationCoordinates = CLLocationCoordinate2D(
-					latitude: coordinates.1!,
-					longitude: coordinates.2!
-				)
-			} else {
-				self.recastAILabel.text = "Enter a valid city"
-			}
-			
-		}
+		self.recastClient?.textRequest(
+			recastAITF.text ?? "",
+			successHandler: recastSuccess,
+			failureHandle: recastFailure)
 	}
 	
+	func recastSuccess (_ response: Response) -> () {
+		if let locations = response.all(entity: "location") {
+			let coordinates = (locations[0]["formatted"] as? String, locations[0]["lat"]?.doubleValue, locations[0]["lng"]?.doubleValue)
+			//self.answerLabel.text = "\(coordinates.0!)\nLAT: \(coordinates.1!)\nLNG:\(coordinates.2!)"
+
+			self.locationCoordinates = CLLocationCoordinate2D(
+				latitude: coordinates.1!,
+				longitude: coordinates.2!
+			)
+		} else {
+			self.recastAILabel.text = "Enter a valid city"
+		}
+		
+	}
+	
+	func recastFailure (_ error: Error) -> () {
+		self.recastAILabel.text = "Error"
+	}
+
+
+
 	func getForcastFromDarkSky() {
 		if locationCoordinates != nil {
 			darkSkyClient?.getForecast(location: locationCoordinates!) { result in

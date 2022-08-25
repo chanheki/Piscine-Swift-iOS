@@ -23,7 +23,7 @@ class MessagesViewController: JSQMessagesViewController {
 	var messages: [JSQMessage] = [JSQMessage(
 		senderId: "0",
 		displayName: "Siri",
-		text: "Weather in which city are you interested in?"
+		text: "어느 도시의 날씨가 궁금하세요?"
 	)] {
 		didSet {
 			DispatchQueue.main.async {
@@ -117,10 +117,10 @@ class MessagesViewController: JSQMessagesViewController {
 					longitude: coordinates.2!
 				)
 			} else {
-				self.error = "Enter a valid city and try again!"
+				self.error = "잘못된 도시의 정보입니다. 다시 입력하세요."
 			}
 		}, failureHandle: { (error) in
-			self.error = "An error occurred, please try again!"
+			self.error = "일시적 오류로 실행할 수 없습니다. 다시 입력하세요."
 		})
 	}
 
@@ -132,11 +132,11 @@ class MessagesViewController: JSQMessagesViewController {
 						let message = JSQMessage(
 							senderId: self.users.first!.id,
 							displayName: self.users.first!.name,
-							text: "The wether is \(currentForecast.currently!.summary!) and the temperature is \(currentForecast.currently!.temperature!) C")
+							text: "해당 도시의 날씨는 \(currentForecast.currently!.summary!)입니다. 온도는 \(currentForecast.currently!.temperature!) C 입니다.")
 
 						self.messages.append(message!)
 					case .failure:
-						self.error = "ERROR"
+						self.error = "날씨 정보를 받아오는데 실패하였습니다."
 				}
 			}
 		}
