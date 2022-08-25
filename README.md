@@ -6,4 +6,4 @@
 ### day 04 : api / tweet / OAuth / token / json
 ### day 05 : mapkit / pin / TabBarController / CLLocationManager / SegmentedControlBar
 ### day 06 : CoreMotion / Gesture / dynamicAnimator / class Shape
-### day 06 : CocoaPods / Pod Recast.AI / Pod Dark Sky / Pod JSQMessagesViewController
+### day 07 : CocoaPods / Pod Recast.AI / Pod Dark Sky / Pod JSQMessagesViewController
