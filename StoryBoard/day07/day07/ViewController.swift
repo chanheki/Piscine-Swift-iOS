@@ -40,9 +40,8 @@ class ViewController: UIViewController {
 	{
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
-//		self.bot = RecastAIClient(token : "c80f802ac6dd241654df237385b351b5")
-		self.recastClient = RecastAIClient(token : "c80f802ac6dd241654df237385b351b5", language: "en")
-		self.darkSkyClient = DarkSkyClient(apiKey: "2ac4b9753bab9108db8df8f8a3705537")
+		self.recastClient = RecastAIClient(token : "", language: "en")
+		self.darkSkyClient = DarkSkyClient(apiKey: "")
 		darkSkyClient?.units = .si
 		darkSkyClient?.language = .korean
 	}
