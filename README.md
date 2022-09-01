@@ -7,4 +7,4 @@
 ### day 05 : mapkit / pin / TabBarController / CLLocationManager / SegmentedControlBar
 ### day 06 : CoreMotion / Gesture / dynamicAnimator / class Shape
 ### day 07 : CocoaPods / Pod Recast.AI / Pod Dark Sky / Pod JSQMessagesViewController
-### day 08 : Create My Pod / chanheki2022
+### day 08 : Create My Pod / chanheki2022 / Core Data 
